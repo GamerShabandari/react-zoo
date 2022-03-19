@@ -17,11 +17,25 @@ export function ZooComponent() {
             })
     })
 
-    console.log(animalsInZoo);
+    useEffect(()=>{
+        let setAnimalsInZooSerialized: string = localStorage.getItem("animalsInZoo") || "[]";
+        setAnimalsInZoo(JSON.parse(setAnimalsInZooSerialized));
+    }, [])
+
+    useEffect(()=>{
+
+        localStorage.setItem("animalsInZoo", JSON.stringify(animalsInZoo));
+
+    }, [animalsInZoo])
+
 
     let listOfAnimals = animalsInZoo.map((animal, i) => {
         return (<div key={i}>
+            <div><img src={animal.imageUrl} width="70px" alt={"image of " + animal.name} /></div>
             <div>{animal.name}</div>
+            <div>{animal.shortDescription}</div>
+            { animal.isFed && <div>är matad</div> }
+            { !animal.isFed && <div>är hungrig</div> }
             <Link to={"/details/"+animal.id}>Detailjer</Link>
         </div>
         )
@@ -31,7 +45,7 @@ export function ZooComponent() {
     return (<>
         <div>ZooComponent Works</div>
 
-        <Link to="/details/111">Details 111 länk</Link>
+        <br />
 
         <div>{listOfAnimals}</div>
     </>)
