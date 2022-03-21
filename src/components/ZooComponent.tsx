@@ -10,7 +10,17 @@ export function ZooComponent() {
     useEffect(()=>{
 
         let setAnimalsInZooSerialized: string = localStorage.getItem("animalsInZoo") || "[]";
-        setAnimalsInZoo(JSON.parse(setAnimalsInZooSerialized))
+        let setAnimalsInZooDeSerialized = JSON.parse(setAnimalsInZooSerialized);
+
+        // for (let i = 0; i < setAnimalsInZooDeSerialized.length; i++) {
+        //     const animal:IAnimal = setAnimalsInZooDeSerialized[i];
+
+        //     if (animal.isFed) {
+        //         let hours = Math.abs(animal.lastFed - animal.lastFed) / 36e5;
+        //     }
+            
+        // }
+        setAnimalsInZoo(setAnimalsInZooDeSerialized)
 
     },[])
 
@@ -29,10 +39,6 @@ export function ZooComponent() {
 
 
     return (<>
-        <div>ZooComponent Works</div>
-
-        <br />
-
         <div>{listOfAnimals}</div>
     </>)
 }

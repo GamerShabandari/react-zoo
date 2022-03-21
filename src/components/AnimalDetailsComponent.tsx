@@ -31,8 +31,6 @@ export function AnimalDetailsComponent() {
             const animal = animalsListDeSerialized[i];
 
             if (animal.id === thisAnimalsId) {
-
-                console.log("du klickade på ", animal.name);
                 setChosenAnimal(animal)
             }
         }
@@ -45,7 +43,6 @@ export function AnimalDetailsComponent() {
         animalToFeed.lastFed = new Date();
 
         setChosenAnimal(animalToFeed)
-        console.log(chosenAnimal);
 
         let animalsListSerialized: string = localStorage.getItem("animalsInZoo") || "[]";
         let animalsListDeSerialized: IAnimal[] = JSON.parse(animalsListSerialized)
@@ -64,7 +61,7 @@ export function AnimalDetailsComponent() {
     }
 
     return (<>
-        <div>AnimalDetails Works</div>
+
         <h2>{chosenAnimal.name}</h2>
         {!chosenAnimal.isFed && <h1>Jag är hungrig</h1>}
         <img src={chosenAnimal.imageUrl} width="400px" />
