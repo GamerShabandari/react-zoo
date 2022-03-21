@@ -22,11 +22,11 @@ export function AnimalDetailsComponent() {
     const [testName, setTestName] = useState("kalle")
 
     let thisAnimalsId: number = Number(id);
-    
+
     useEffect(() => {
         let animalsListSerialized: string = localStorage.getItem("animalsInZoo") || "[]";
         let animalsListDeSerialized: IAnimal[] = JSON.parse(animalsListSerialized)
-     
+
         for (let i = 0; i < animalsListDeSerialized.length; i++) {
             const animal = animalsListDeSerialized[i];
 
@@ -38,7 +38,6 @@ export function AnimalDetailsComponent() {
         }
     }, []);
 
-   
 
     function feedAnimal(animalToFeed: IAnimal) {
 
@@ -57,10 +56,6 @@ export function AnimalDetailsComponent() {
             if (animal.id === chosenAnimal.id) {
 
                 animalsListDeSerialized[i] = chosenAnimal;
-    
-                
-
-
             }
 
         }
@@ -71,8 +66,8 @@ export function AnimalDetailsComponent() {
     return (<>
         <div>AnimalDetails Works</div>
         <h2>{chosenAnimal.name}</h2>
-        { !chosenAnimal.isFed && <h1>Jag är hungrig</h1>}
-        <img src={chosenAnimal.imageUrl} width="400px"/>
+        {!chosenAnimal.isFed && <h1>Jag är hungrig</h1>}
+        <img src={chosenAnimal.imageUrl} width="400px" />
         <h3>Lite info om {chosenAnimal.name}</h3>
         <p>{chosenAnimal.longDescription}</p>
         <h4>Födelseår: {chosenAnimal.yearOfBirth}</h4>
