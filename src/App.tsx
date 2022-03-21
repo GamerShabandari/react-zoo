@@ -20,7 +20,6 @@ function App() {
         .then(response => {
           localStorage.setItem("animalsInZoo", JSON.stringify(response.data));
         })
-
     }
 
   }, [])
