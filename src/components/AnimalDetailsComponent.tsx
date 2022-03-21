@@ -20,8 +20,10 @@ export function AnimalDetailsComponent() {
     const { id } = useParams();
     const [chosenAnimal, setChosenAnimal] = useState<IAnimal>(defaultAnimal);
     const [testName, setTestName] = useState("kalle")
+    const [isVeryHungry, setIsVeryHungry] = useState(false)
 
     let thisAnimalsId: number = Number(id);
+    //let isVeryHungry: boolean = false;
 
     useEffect(() => {
         let animalsListSerialized: string = localStorage.getItem("animalsInZoo") || "[]";
@@ -31,6 +33,21 @@ export function AnimalDetailsComponent() {
             const animal = animalsListDeSerialized[i];
 
             if (animal.id === thisAnimalsId) {
+
+
+
+                let timeSinceLastFed = new Date().getTime() - new Date(animal.lastFed).getTime();
+                let hoursSinceFed = Math.floor(timeSinceLastFed / (1000 * 60 * 60));
+
+                if (hoursSinceFed >= 4) {
+                    setIsVeryHungry(true)
+               //     isVeryHungry = true;
+                    animal.isFed = false;
+                } else if (hoursSinceFed >= 3) {
+
+                    animal.isFed = false;
+
+                }
                 setChosenAnimal(animal)
             }
         }
@@ -41,6 +58,7 @@ export function AnimalDetailsComponent() {
 
         animalToFeed.isFed = true
         animalToFeed.lastFed = new Date();
+        setIsVeryHungry(false)
 
         setChosenAnimal(animalToFeed)
 
@@ -64,6 +82,7 @@ export function AnimalDetailsComponent() {
 
         <h2>{chosenAnimal.name}</h2>
         {!chosenAnimal.isFed && <h1>Jag är hungrig</h1>}
+        {isVeryHungry === true && <h1>Det var mer än 4 timmar sedan jag blev matad sist!</h1>}
         <img src={chosenAnimal.imageUrl} width="400px" />
         <h3>Lite info om {chosenAnimal.name}</h3>
         <p>{chosenAnimal.longDescription}</p>
