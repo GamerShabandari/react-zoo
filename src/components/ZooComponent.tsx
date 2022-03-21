@@ -3,6 +3,8 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { IAnimal } from "../models/IAnimal";
 
+import "./ZooComponent.css";
+
 export function ZooComponent() {
 
     const [animalsInZoo, setAnimalsInZoo] = useState<IAnimal[]>([]);
