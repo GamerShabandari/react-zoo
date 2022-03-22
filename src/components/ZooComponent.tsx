@@ -28,6 +28,7 @@ export function ZooComponent() {
         
         if (hoursSinceFed >= 4 ) {
             isVeryHungry = true;
+            animal.isFed = false;
         }
 
         return (<div className="mainContainer" key={i}>
