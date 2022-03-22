@@ -2,8 +2,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 5px;
     text-align: center;
+    padding: 20px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+    background-color: white;
+    
 }
 
 .mainContainer div{
@@ -11,5 +17,28 @@
 }
 
 .mainContainer img{
-    border-radius: 20px;
+    border-radius: 5px;
+    width: 30%;
+}
+
+.warning{
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    padding: 4px;
+    text-align: center;
+}
+
+.name{
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+.btn{
+    text-decoration: none;
+    background-color: black;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin: 10px;
 }

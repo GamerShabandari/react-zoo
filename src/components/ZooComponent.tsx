@@ -31,14 +31,14 @@ export function ZooComponent() {
         }
 
         return (<div className="mainContainer" key={i}>
-            <div><img src={animal.imageUrl} width="70px" alt={"image of " + animal.name} /></div>
-            <div>{animal.name}</div>
+            <div><img src={animal.imageUrl} alt={"image of " + animal.name} /></div>
+            <div className="name">{animal.name}</div>
             <div>{animal.shortDescription}</div>
             { animal.isFed && <div>är matad</div> }
             { animal.isFed && <div> matades senast: {animal.lastFed} </div> }
-            { !animal.isFed && <div>är hungrig</div> }
-            { isVeryHungry && <div>Jag har inte matats på över 4 timmar!!!</div> }
-            <Link to={"/details/"+animal.id}>Detailjer</Link>
+            { !animal.isFed && <div className="warning">är hungrig</div> }
+            { isVeryHungry && <div className="warning">Jag har inte matats på över 4 timmar!!!</div> }
+            <Link to={"/details/"+animal.id} className="btn">Detailjer</Link>
         </div>
         )
     })
