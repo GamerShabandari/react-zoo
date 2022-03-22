@@ -30,7 +30,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <nav>
-          <h1>Välkommen till ditt Zoo</h1>
+          <h1>Zoo-otic</h1>
         </nav>
         <Routes>
           <Route path='/' element={<ZooComponent></ZooComponent>}></Route>

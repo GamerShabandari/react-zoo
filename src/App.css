@@ -28,6 +28,17 @@
   color: #61dafb;
 }
 
+nav{ 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  height: 10vh;
+  font-size: 2.5rem;
+  padding: 30px;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
