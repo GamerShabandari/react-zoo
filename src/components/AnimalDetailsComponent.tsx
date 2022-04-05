@@ -85,7 +85,7 @@ export function AnimalDetailsComponent() {
             <h2 className="name">{chosenAnimal.name}</h2>
             {!chosenAnimal.isFed && <h2 className="warning">Jag är hungrig</h2>}
             {isVeryHungry === true && <h1 className="warning">Det var mer än 4 timmar sedan jag blev matad sist!</h1>}
-            <img src={chosenAnimal.imageUrl} width="400px" />
+            <img className='animate__animated animate__heartBeat' src={chosenAnimal.imageUrl} width="400px" />
             <h3>Lite info om {chosenAnimal.name}</h3>
             <p>{chosenAnimal.longDescription}</p>
             <h4>Födelseår: {chosenAnimal.yearOfBirth}</h4>

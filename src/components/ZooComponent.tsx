@@ -32,7 +32,7 @@ export function ZooComponent() {
         }
 
         return (<div className="mainContainer" key={i}>
-            <div><img src={animal.imageUrl} alt={"image of " + animal.name} /></div>
+            <div className='animate__animated animate__bounce'><img src={animal.imageUrl} alt={"image of " + animal.name} /></div>
             <div className="name">{animal.name}</div>
             <div>{animal.shortDescription}</div>
             { animal.isFed && <div>är matad</div> }

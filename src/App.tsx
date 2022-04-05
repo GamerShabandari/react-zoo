@@ -7,6 +7,7 @@ import { AnimalDetailsComponent } from './components/AnimalDetailsComponent';
 import axios from 'axios';
 import { IAnimal } from './models/IAnimal';
 import { useEffect } from 'react';
+import "animate.css"
 
 function App() {
 
